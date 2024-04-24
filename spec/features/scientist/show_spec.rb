@@ -12,6 +12,7 @@ RSpec.describe "Scientist Show Spec" do
   describe "When I visit a scientist's show page" do
     it "I see all of that scientist's information (name, specialty, university where they got their degree)" do
       visit "/scientists/#{@scientist1.id}"
+      save_and_open_page
 
       expect(page).to have_content(@scientist1.name)
       expect(page).to have_content(@scientist1.specialty)
@@ -22,6 +23,7 @@ RSpec.describe "Scientist Show Spec" do
 
       # I see the names of all of the experiments this scientist is running.
       expect(page).to have_content(@experiment1.name)
+
     end
   end
 end
